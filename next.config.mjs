@@ -18,6 +18,9 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  images: {
+    domains: ["lh3.googleusercontent.com", "cdn.rareblocks.xyz"],
+  },
 };
 
 export default config;
