@@ -1,7 +1,26 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { useRouter } from "next/router";
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
 
 const Pricing = () => {
+  const router = useRouter();
+  const createCheckoutSession = async (priceId: string) => {
+    const res = await fetch(`api/create-checkout-session`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ priceId }),
+    });
+    const data = await res.json();
+    console.log(data);
+    void router.push(data.url);
+    return true;
+  };
+
   return (
     <div className="relative isolate flex min-h-screen flex-col bg-gradient-to-tr from-[#1f2937] to-[#1f1e20] px-6 lg:px-8">
       <div
@@ -17,15 +36,16 @@ const Pricing = () => {
         />
       </div>
       <Header />
-      <section className="bg-transparent">
+      <div className="bg-transparent">
         <div className="mx-auto max-w-screen-xl px-4 py-8 lg:px-6 lg:py-16">
           <div className="mx-auto mb-8 max-w-screen-md text-center lg:mb-12">
             <h2 className="mb-4 text-4xl font-bold  text-white">
               Designed for business teams like yours
             </h2>
             <p className="mb-5 font-light text-gray-400 sm:text-xl">
-              Here at Flowbite we focus on markets where technology, innovation,
-              and capital can unlock long-term value and drive economic growth.
+              Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+              amet sint. Velit officia consequat duis enim velit mollit.
+              Exercitation veniam consequat.
             </p>
           </div>
           <div className="space-y-8 sm:gap-6 lg:grid lg:grid-cols-3 lg:space-y-0 xl:gap-10">
@@ -151,13 +171,18 @@ const Pricing = () => {
                   </span>
                 </li>
               </ul>
-              <button className=" cursor-pointer rounded-lg bg-indigo-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-indigo-700 ">
+              <button
+                className="cursor-pointer rounded-lg bg-indigo-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-indigo-700 "
+                onClick={() => {
+                  void createCheckoutSession("price_1Na6FfDtIpas9hvT9AoR6vum");
+                }}
+              >
                 Get started
               </button>
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
       <Footer />
     </div>
