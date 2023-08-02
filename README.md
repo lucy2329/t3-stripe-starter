@@ -21,8 +21,8 @@ To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the fo
 - [Documentation](https://create.t3.gg/)
 - [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) for more information!
+You can check out the [create-t3-stripe-starter GitHub repository](https://github.com/lucy2329/t3-stripe-starter) for more information!
 
 ## How do I deploy this?
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+This can be easily deployed using Vercel. Checkout their docs [here](https://vercel.com/docs) on how to deploy it for free.
